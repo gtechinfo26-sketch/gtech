@@ -12,8 +12,8 @@ export const Footer = () => {
               <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
                 <Cog className="w-6 h-6 text-primary" />
               </div>
-              <span className="font-display font-bold text-xl tracking-wider text-foreground">
-                AUTO<span className="text-primary">TECH</span>
+              <span className="font-display font-bold text-lg tracking-wider text-foreground">
+                GAYATHRI <span className="text-primary">TECHNOCRATS</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -88,7 +88,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 AutoTech. All rights reserved.
+            © 2024 Gayathri Technocrats. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">

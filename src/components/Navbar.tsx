@@ -20,8 +20,8 @@ export const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
             <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30 group-hover:glow-primary transition-all duration-300">
               <Cog className="w-6 h-6 text-primary animate-spin" style={{ animationDuration: '8s' }} />
             </div>
-            <span className="font-display font-bold text-xl tracking-wider text-foreground">
-              AUTO<span className="text-primary">TECH</span>
+            <span className="font-display font-bold text-lg tracking-wider text-foreground">
+              GAYATHRI <span className="text-primary">TECHNOCRATS</span>
             </span>
           </Link>
 
