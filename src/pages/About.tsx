@@ -65,8 +65,7 @@ const About = () => {
               {
                 icon: Cog,
                 title: "RC DETAILS",
-                description: "TIN  No: 33333361542 C.S.T No: 673824	Dt:31-07-1996 GST No:33AKZPK8485E1ZH AREA CODE: 175 C.E No: AKZPK8485EXM001 PAN No: AKZPK8485E
-."
+                description: "TIN No:33333361542 C.S.T No:673824	Dt:31-07-1996 GST No:33AKZPK8485E1ZH AREA CODE: 175 C.E No: AKZPK8485EXM001 PAN No: AKZPK8485E"
               },
               {
                 icon: Award,
