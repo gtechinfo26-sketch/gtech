@@ -70,15 +70,17 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="w-4 h-4 text-primary" />
-                contact@autotech.com
+                gtech-hosur@hotmail.com, gtech.hosur@gmail.com
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                +1 (555) 123-4567
+                +91-9994496112 / +91- 9944272112
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                123 Industrial Ave, Tech City
+                GAYATHRI TECHNOCRATS, 1/281, MOOKANDAPALLI, HOSUR – 635 126,TAMIL NADU.
+                www.gayathritech.co.in
+
               </li>
             </ul>
           </div>
