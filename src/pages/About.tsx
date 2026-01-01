@@ -20,6 +20,7 @@ const About = () => {
             <p className="text-muted-foreground text-lg leading-relaxed">
               We are a leading provider of industrial automation solutions, delivering cutting-edge 
               machinery and technology to businesses across industries.
+              
             </p>
           </div>
         </section>
@@ -63,8 +64,9 @@ const About = () => {
             {[
               {
                 icon: Cog,
-                title: "Expert Engineering",
-                description: "Our team of skilled engineers brings decades of combined experience in industrial automation and machinery."
+                title: "RC DETAILS",
+                description: "TIN  No: 33333361542 C.S.T No: 673824	Dt:31-07-1996 GST No:33AKZPK8485E1ZH AREA CODE: 175 C.E No: AKZPK8485EXM001 PAN No: AKZPK8485E
+."
               },
               {
                 icon: Award,
@@ -97,7 +99,7 @@ const About = () => {
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-border rounded-2xl p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: "10+", label: "Years Experience" },
+                { value: "30+", label: "Years Experience" },
                 { value: "500+", label: "Machines Delivered" },
                 { value: "200+", label: "Happy Clients" },
                 { value: "24/7", label: "Support Available" }
