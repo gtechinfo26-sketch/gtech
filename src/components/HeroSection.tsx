@@ -27,7 +27,7 @@ export const HeroSection = () => {
         <div className="max-w-3xl">
           <div className="animate-slide-up">
             <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary font-medium text-sm mb-6 tracking-wider uppercase">
-              Industrial Automation Solutions
+              THE AUTOMATION PEOPLE
             </span>
           </div>
 
@@ -38,8 +38,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            Cutting-edge automation machinery and intelligent systems that transform 
-            production efficiency. Experience precision engineering at its finest.
+            WE DON'T WANT TO PUSH OUR IDEAS ON TO CUSTOMERS, WE SIMPLY WANT TO MAKE WHAT THEY WANT
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
