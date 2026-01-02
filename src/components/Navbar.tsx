@@ -19,7 +19,7 @@ export const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img src={logo} alt="Gayathri Technocrats Logo" className="w-10 h-10 object-contain" />
-            <span className="font-display font-bold text-lg tracking-wider text-foreground">
+            <span className="font-brand font-bold text-xl tracking-wide text-foreground uppercase">
               GAYATHRI <span className="text-primary">TECHNOCRATS</span>
             </span>
           </Link>

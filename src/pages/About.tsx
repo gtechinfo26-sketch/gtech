@@ -15,7 +15,7 @@ const About = () => {
         <section className="container mx-auto px-4 mb-16">
           <div className="text-center max-w-3xl mx-auto animate-fade-in">
             <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-primary">Gayathri Technocrats</span>
+              About <span className="font-brand text-primary">GAYATHRI TECHNOCRATS</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
               We are a leading provider of industrial automation solutions, delivering cutting-edge 
