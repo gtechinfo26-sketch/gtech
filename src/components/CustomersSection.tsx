@@ -1,39 +1,12 @@
 const customers = [
-    " TATA ELECTRONICS ",
-    " INDIA NIPPON ELECTRICALS LTD ",
-    " ABB LTD ",
-    " TITAN INDUSTRIES LTD ",
-    " MANDO BRAKES INDIA LTD ",
-    " IGARASHI MOTORS LTD ",
-    " TVS CHERRY LTD ",
-     " HARITHA SEATINGS LTD ",
-    " PRIMUS GLOVES PVT LTD ", 
-    " LUCAS TVS ",
-    " DELPHI TVS ",
-    " SARATH TECHNOLOGIES ",
-    " BTS CLOTHING PVT. LTD ",
-    " SUNDARAM CLYTON ",
-    " HARITA RUBBER ", 
-    "  ZF ELECTRONICS TVS PVT. LTD ",
-    " BANGALORE REFINERY ",
-    " LAKSHMI ELCTRICAL CONTROL SYSTEMS LTD ",
-    " RACHEL ENGINEERING ", 
-    "SIGMA POWER & ENERGY ENGINEERS ",
-    " SUDARSAN AUTO COMPONENTS PVT. LTD ",
-    " TVS MOTORS COMPANY LTD ",
-    " MACUREX SENSORS PVT LTD ",
-    " N.N. AUTOLINX ",
-    " MULTILINK ",
-    " SAME DEUTZ - FAHR INDIA ( P ) LTD ",
-    " CUMI, HOSUR ",
-    " YAMAHA ELECTRONICS LTD ",
-    " UCAL FUEL SYSTEMS ",
-    " GABBRIAL  LIMITED ",
-    " TATA ELECTRONICS ",
-    " WABTECH ",
-    " FAIVELEY ", 
-  ];
-
+      { name: "Tata Steel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/200px-Tata_logo.svg.png" },
+  { name: "Larsen & Toubro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Larsen_%26_Toubro_logo.svg/200px-Larsen_%26_Toubro_logo.svg.png" },
+  { name: "Bharat Heavy Electricals", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/BHEL.svg/200px-BHEL.svg.png" },
+  { name: "Ashok Leyland", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Ashok_Leyland_logo.svg/200px-Ashok_Leyland_logo.svg.png" },
+  { name: "Mahindra & Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mahindra_Rise_logo.svg/200px-Mahindra_Rise_logo.svg.png" },
+  { name: "Hindustan Aeronautics", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Hindustan_Aeronautics_Limited_Logo.svg/200px-Hindustan_Aeronautics_Limited_Logo.svg.png" },
+];
+  
 export const CustomersSection = () => {
   return (
     <section className="py-16 bg-muted/30">
