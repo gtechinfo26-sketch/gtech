@@ -1,5 +1,5 @@
 const customers = [
-      { name: "Tata Steel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/200px-Tata_logo.svg.png" },
+      { name: "Tata Steel", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg.png" },
   { name: "Larsen & Toubro",  },
   { name: "Bharat Heavy Electricals", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/BHEL.svg/200px-BHEL.svg.png" },
   { name: "Ashok Leyland", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Ashok_Leyland_logo.svg/200px-Ashok_Leyland_logo.svg.png" },
