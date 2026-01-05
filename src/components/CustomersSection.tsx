@@ -1,6 +1,6 @@
 const customers = [
       { name: "Tata Steel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/200px-Tata_logo.svg.png" },
-  { name: "Larsen & Toubro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Larsen_%26_Toubro_logo.svg/200px-Larsen_%26_Toubro_logo.svg.png" },
+  { name: "Larsen & Toubro",  },
   { name: "Bharat Heavy Electricals", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/BHEL.svg/200px-BHEL.svg.png" },
   { name: "Ashok Leyland", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Ashok_Leyland_logo.svg/200px-Ashok_Leyland_logo.svg.png" },
   { name: "Mahindra & Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mahindra_Rise_logo.svg/200px-Mahindra_Rise_logo.svg.png" },
