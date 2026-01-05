@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Machines from "./pages/Machines";
+import MachineDetail from "./pages/MachineDetail";
 import Admin from "./pages/Admin";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/machines" element={<Machines />} />
+            <Route path="/machines/:id" element={<MachineDetail />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
