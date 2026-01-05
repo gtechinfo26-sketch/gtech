@@ -56,18 +56,7 @@ export const HeroSection = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-border/50 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <div>
-              <div className="font-display text-4xl font-bold text-primary mb-1">500+</div>
-              <div className="text-muted-foreground text-sm">Machines Deployed</div>
-            </div>
-            <div>
-              <div className="font-display text-4xl font-bold text-primary mb-1">98%</div>
-              <div className="text-muted-foreground text-sm">Uptime Guarantee</div>
-            </div>
-            <div>
-              <div className="font-display text-4xl font-bold text-primary mb-1">24/7</div>
-              <div className="text-muted-foreground text-sm">Support Available</div>
-            </div>
+            
           </div>
         </div>
       </div>
