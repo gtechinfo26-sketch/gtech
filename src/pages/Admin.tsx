@@ -10,8 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Upload, X, Loader2, Video } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, X, Loader2, Video, Cog, Users } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -19,6 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { CustomerManagement } from "@/components/admin/CustomerManagement";
 
 interface Machine {
   id: string;
@@ -255,22 +257,46 @@ const Admin = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar isAuthenticated={true} onLogout={signOut} />
       
-      <main className="flex-1 pt-24 pb-16">
+      <main className="flex-1 pt-20 pb-12">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-            <div>
-              <h1 className="font-display text-3xl font-bold text-foreground mb-2">
-                Admin Panel
-              </h1>
-              <p className="text-muted-foreground">
-                Manage your machines and equipment catalog
-              </p>
-            </div>
+          <div className="mb-6">
+            <h1 className="font-display text-2xl font-bold text-foreground mb-1">
+              Admin Panel
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              Manage machines, customers and content
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <Tabs defaultValue="machines" className="space-y-6">
+            <TabsList className="bg-secondary/50">
+              <TabsTrigger value="machines" className="gap-2">
+                <Cog className="w-4 h-4" />
+                Machines
+              </TabsTrigger>
+              <TabsTrigger value="customers" className="gap-2">
+                <Users className="w-4 h-4" />
+                Customers
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="machines">
+              {/* Machine Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground">
+                    Machines
+                  </h2>
+                  <p className="text-muted-foreground text-sm">
+                    Manage your equipment catalog
+                  </p>
+                </div>
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
-                <Button variant="hero" size="lg" onClick={() => resetForm()}>
-                  <Plus className="w-5 h-5" />
+                <Button variant="hero" onClick={() => resetForm()}>
+                  <Plus className="w-4 h-4" />
                   Add Machine
                 </Button>
               </DialogTrigger>
@@ -567,19 +593,25 @@ const Admin = () => {
                 </table>
               </div>
             ) : (
-              <div className="p-12 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Plus className="w-8 h-8 text-primary" />
+              <div className="p-8 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Cog className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+                <h3 className="font-display text-lg font-semibold text-foreground mb-1">
                   No Machines Yet
                 </h3>
-                <p className="text-muted-foreground mb-4">
-                  Click "Add Machine" to get started
+                <p className="text-muted-foreground text-sm">
+                  Add your first machine
                 </p>
               </div>
             )}
           </div>
+            </TabsContent>
+
+            <TabsContent value="customers">
+              <CustomerManagement />
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
 
