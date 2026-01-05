@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Upload, X, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, X, Loader2, Video } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -26,6 +26,8 @@ interface Machine {
   description: string | null;
   category: string;
   image_url: string | null;
+  video_url: string | null;
+  technical_info: string | null;
   is_featured: boolean;
   created_at: string;
   updated_at: string;
@@ -41,10 +43,13 @@ const Admin = () => {
     name: "",
     description: "",
     category: "General",
+    technical_info: "",
     is_featured: false,
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [videoPreview, setVideoPreview] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
@@ -139,9 +144,11 @@ const Admin = () => {
   });
 
   const resetForm = () => {
-    setFormData({ name: "", description: "", category: "General", is_featured: false });
+    setFormData({ name: "", description: "", category: "General", technical_info: "", is_featured: false });
     setImageFile(null);
     setImagePreview(null);
+    setVideoFile(null);
+    setVideoPreview(null);
     setEditingMachine(null);
     setIsDialogOpen(false);
   };
@@ -158,20 +165,52 @@ const Admin = () => {
     }
   };
 
+  const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setVideoFile(file);
+      setVideoPreview(URL.createObjectURL(file));
+    }
+  };
+
+  const uploadVideo = async (file: File): Promise<string | null> => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}.${fileExt}`;
+    const filePath = `videos/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from("machine-images")
+      .upload(filePath, file);
+
+    if (uploadError) throw uploadError;
+
+    const { data } = supabase.storage
+      .from("machine-images")
+      .getPublicUrl(filePath);
+
+    return data.publicUrl;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsUploading(true);
 
     try {
       let imageUrl: string | null = editingMachine?.image_url || null;
+      let videoUrl: string | null = editingMachine?.video_url || null;
 
       if (imageFile) {
         imageUrl = await uploadImage(imageFile);
       }
 
+      if (videoFile) {
+        videoUrl = await uploadVideo(videoFile);
+      }
+
       const machineData = {
         ...formData,
         image_url: imageUrl,
+        video_url: videoUrl,
       };
 
       if (editingMachine) {
@@ -192,9 +231,11 @@ const Admin = () => {
       name: machine.name,
       description: machine.description || "",
       category: machine.category,
+      technical_info: machine.technical_info || "",
       is_featured: machine.is_featured ?? false,
     });
     setImagePreview(machine.image_url);
+    setVideoPreview(machine.video_url);
     setIsDialogOpen(true);
   };
 
@@ -233,7 +274,7 @@ const Admin = () => {
                   Add Machine
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-lg bg-card border-border">
+              <DialogContent className="max-w-lg bg-card border-border max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle className="font-display text-xl">
                     {editingMachine ? "Edit Machine" : "Add New Machine"}
@@ -279,7 +320,45 @@ const Admin = () => {
                     </div>
                   </div>
 
-                  {/* Name */}
+                  {/* Video Upload */}
+                  <div className="space-y-2">
+                    <Label>Machine Video (Optional)</Label>
+                    <div className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/50 transition-colors">
+                      {videoPreview ? (
+                        <div className="relative">
+                          <video
+                            src={videoPreview}
+                            className="w-full h-32 object-cover rounded-lg"
+                            controls
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setVideoFile(null);
+                              setVideoPreview(null);
+                            }}
+                            className="absolute top-2 right-2 w-8 h-8 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <label className="cursor-pointer">
+                          <Video className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                          <p className="text-muted-foreground text-sm">
+                            Click to upload a video
+                          </p>
+                          <input
+                            type="file"
+                            accept="video/*"
+                            onChange={handleVideoChange}
+                            className="hidden"
+                          />
+                        </label>
+                      )}
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="name">Machine Name</Label>
                     <Input
@@ -318,8 +397,36 @@ const Admin = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, description: e.target.value })
                       }
-                      placeholder="Describe the machine specifications and capabilities..."
+                      placeholder="Describe the machine overview..."
+                      className="bg-background border-border min-h-[80px]"
+                    />
+                  </div>
+
+                  {/* Technical Information */}
+                  <div className="space-y-2">
+                    <Label htmlFor="technical_info">Technical Information</Label>
+                    <Textarea
+                      id="technical_info"
+                      value={formData.technical_info}
+                      onChange={(e) =>
+                        setFormData({ ...formData, technical_info: e.target.value })
+                      }
+                      placeholder="Enter detailed technical specs, advanced system details, certifications..."
                       className="bg-background border-border min-h-[100px]"
+                    />
+                  </div>
+
+                  {/* Technical Information */}
+                  <div className="space-y-2">
+                    <Label htmlFor="technical_info">Technical Information</Label>
+                    <Textarea
+                      id="technical_info"
+                      value={formData.technical_info}
+                      onChange={(e) =>
+                        setFormData({ ...formData, technical_info: e.target.value })
+                      }
+                      placeholder="Enter detailed technical specifications, advanced system details, certifications..."
+                      className="bg-background border-border min-h-[120px]"
                     />
                   </div>
 

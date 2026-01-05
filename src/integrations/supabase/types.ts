@@ -24,7 +24,9 @@ export type Database = {
           is_featured: boolean | null
           name: string
           specifications: Json | null
+          technical_info: string | null
           updated_at: string
+          video_url: string | null
         }
         Insert: {
           category?: string
@@ -35,7 +37,9 @@ export type Database = {
           is_featured?: boolean | null
           name: string
           specifications?: Json | null
+          technical_info?: string | null
           updated_at?: string
+          video_url?: string | null
         }
         Update: {
           category?: string
@@ -46,7 +50,9 @@ export type Database = {
           is_featured?: boolean | null
           name?: string
           specifications?: Json | null
+          technical_info?: string | null
           updated_at?: string
+          video_url?: string | null
         }
         Relationships: []
       }
